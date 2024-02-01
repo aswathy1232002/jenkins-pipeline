@@ -4,48 +4,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your source code from version control (e.g., Git)
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                // Execute the build process (e.g., using Maven, Gradle, etc.)
                 script {
-                    sh 'mvn clean package'
+                    // Clean workspace before checkout
+                    deleteDir()
+
+                    // Clone the repository and specify the branch
+                    checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: https://github.com/aswathy1232002/jenkins-pipeline.git']]])
                 }
             }
         }
 
-        stage('Test') {
+        stage('Build and Deploy') {
             steps {
-                // Run tests
-                script {
-                    sh 'mvn test'
-                }
+                // Your build and deploy steps here
+                echo 'Build and deploy steps go here'
+                sh "cp -r index.html /tmp/"
             }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Deploy your application (e.g., to a server)
-                script {
-                    sh 'ssh user@server "deploy-script.sh"'
-                }
-            }
-        }
-    }
-
-    post {
-        success {
-            // Actions to take if the pipeline succeeds
-            echo 'Pipeline succeeded! Notify or perform additional tasks here.'
-        }
-        failure {
-            // Actions to take if the pipeline fails
-            echo 'Pipeline failed! Notify or perform additional tasks here.'
         }
     }
 }
-
