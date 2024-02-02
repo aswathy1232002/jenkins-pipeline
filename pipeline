@@ -18,7 +18,7 @@ pipeline {
             steps {
                 // Your build and deploy steps here
                 echo 'Build and deploy steps go here'
-                pwd
+                sh "pwd"
                 sh "cp index.html /var/www/html/"
             }
         }
