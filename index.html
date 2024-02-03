@@ -10,7 +10,6 @@
             background-color: #f7f7f7;
             margin: 0;
             padding: 0;
-            text-align: center;
             color: #333;
         }
 
@@ -18,14 +17,43 @@
             background-color: #4285f4;
             color: #fff;
             padding: 20px;
+            text-align: center;
         }
 
         section {
-            padding: 30px;
+            padding: 50px;
             margin: 20px 0;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             background-color: #fff;
+            text-align: center;
+        }
+
+        section h2 {
+            color: #4285f4;
+        }
+
+        section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            background-color: #4285f4;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0f4cb5;
         }
 
         footer {
@@ -57,13 +85,28 @@
     <section>
         <h2>Contact Us</h2>
         <p>We value your thoughts and inquiries. Don't hesitate to reach out — our team is ready to assist you on your path to success!</p>
+        <a href="#contact" class="cta-button">Get in Touch</a>
     </section>
 
     <footer>
         <p>&copy; 2024 Your Company. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
+
 
 
