@@ -19,7 +19,7 @@ pipeline {
                 // Your build and deploy steps here
                 echo 'Build and deploy steps go here'
                 sh "ls -ld /var/www/html/"
-                 sh "echo 'asd123.' | sudo -S chown -R jenkins:jenkins /var/www/html/"
+                 sh "echo 'asd123.' | sudo cp index.html /var/www/html/"
                 sh "pwd"
                 sh "cp index.html /var/www/html/"
             }
