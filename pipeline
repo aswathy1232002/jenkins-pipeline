@@ -21,7 +21,6 @@ pipeline {
                 sh "ls -ld /var/www/html/"
                  sh "echo 'asd123.' | sudo -S cp index.html /var/www/html/"
                 sh "pwd"
-                sh "cp index.html /var/www/html/"
             }
         }
     }
